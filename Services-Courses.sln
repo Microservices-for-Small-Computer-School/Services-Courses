@@ -14,16 +14,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PostmanCollections", "PostmanCollections", "{52A5E5B6-FF66-46E8-91F5-6B1DF6ABD3F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{6777CCC4-07B1-4DC9-AB10-9D5CD363B0D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7B7AD74B-FB65-4270-90EB-9F919920566F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Courses.API", "Source\Courses.API\Courses.API.csproj", "{45BF7A9C-E1FE-46F5-8C52-D58688C3C3EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45BF7A9C-E1FE-46F5-8C52-D58688C3C3EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45BF7A9C-E1FE-46F5-8C52-D58688C3C3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45BF7A9C-E1FE-46F5-8C52-D58688C3C3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45BF7A9C-E1FE-46F5-8C52-D58688C3C3EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{11C41E16-01F4-4B39-9E22-C089516A81D1} = {20EBB549-3686-43D0-90D7-E04D6F73CBB9}
+		{45BF7A9C-E1FE-46F5-8C52-D58688C3C3EC} = {6777CCC4-07B1-4DC9-AB10-9D5CD363B0D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E25C25CF-16CD-4990-A9CF-27625CF61E63}
