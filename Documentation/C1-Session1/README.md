@@ -1,12 +1,6 @@
 # .NET 7 - Hands-on Minimal API with ASP.NET Core and Static data
 
-## Date Time: 20-Jan-2023 at 06:30 AM IST
-
-## Event URL: [https://www.meetup.com/dot-net-learners-house-hyderabad/events/290536063](https://www.meetup.com/dot-net-learners-house-hyderabad/events/290536063)
-
-## YouTube URL: [https://www.youtube.com/watch?v=guVmjIP7Azs](https://www.youtube.com/watch?v=guVmjIP7Azs)
-
-![Viswanatha Swamy P K |150x150](./Documentation/Images/ViswanathaSwamyPK.PNG)
+## Date Time: 06-Mar-2023 at 08:30 PM IST
 
 ---
 
@@ -20,9 +14,6 @@
 ### Prior Knowledge
 
 > 1. Programming knowledge in C#
-> 1. Azure
-> 1. Angular 15
-> 1. .NET Razor/Blazor WASM
 
 ## Technology Stack
 
@@ -30,7 +21,7 @@
 
 ## Information
 
-![Information | 100x100](./Documentation/Images/Information.PNG)
+![Information | 100x100](./Images/Information.PNG)
 
 ## What are we doing today?
 
@@ -56,11 +47,11 @@
 > 1. Testing using
 >    - Swagger | Postman | Browser Dev Tools
 
-### Please refer to the [**Source Code**](https://github.com/Microservices-for-Small-School-App/services-school) of today's session for more details
+### Please refer to the [**Source Code**](https://github.com/Microservices-for-Small-Computer-School/Services-Courses) of today's session for more details
 
 ---
 
-![Information | 100x100](./Documentation/Images/SeatBelt.PNG)
+![Information | 100x100](./Images/SeatBelt.PNG)
 
 ---
 
@@ -112,7 +103,7 @@
 dotnet new list
 ```
 
-![Dotnet New List | 100x100](./Documentation/Images/DotnetNewList.PNG)
+![Dotnet New List | 100x100](./Images/DotnetNewList.PNG)
 
 ### Create Minimal API using `dotnet new web`
 
@@ -123,7 +114,7 @@ dotnet new list
 dotnet new web -o firstsample --dry-run
 ```
 
-![Dotnet New Web | 100x100](./Documentation/Images/DotNetNew_CLI_1.PNG)
+![Dotnet New Web | 100x100](./Images/DotNetNew_CLI_1.PNG)
 
 ### Create Minimal API using `dotnet new webapi -minimal`
 
@@ -134,7 +125,7 @@ dotnet new web -o firstsample --dry-run
 dotnet new webapi -minimal -o secondsample --dry-run
 ```
 
-![Dotnet New WebApi | 100x100](./Documentation/Images/DotNetNew_CLI_2.PNG)
+![Dotnet New WebApi | 100x100](./Images/DotNetNew_CLI_2.PNG)
 
 ## 4. Create Minimal API using `VS 2022` - Web API Template - Uncheck Controllers
 
@@ -148,7 +139,7 @@ dotnet new webapi -minimal -o secondsample --dry-run
 
 > 1. Discussion and Demo.
 
-![Web Api Template | 100x100](./Documentation/Images/WebAPITemplate.PNG)
+![Web Api Template | 100x100](./Images/WebAPITemplate.PNG)
 
 ## 5. Create Minimal API using `VS 2022` - Web App Empty Template
 
@@ -158,21 +149,77 @@ dotnet new webapi -minimal -o secondsample --dry-run
 
 > 1. Discussion and Demo.
 
-![Web App Empty Template | 100x100](./Documentation/Images/WebAppEmptyTemplate.PNG)
+![Web App Empty Template | 100x100](./Images/WebAppEmptyTemplate.PNG)
 
 ## 6. Exposing `4 Basic` API Endpoints
 
 > 1. Discussion and Demo
 
+```csharp
+app.MapGet(HelloWorldRoutes.Root, () => "Hello Minimal API World from Root !!");
+
+app.MapGet(HelloWorldRoutes.HelloWorld, () =>
+{
+    return ApiResponseDto<string>.Create("Hello Minimal API World from /hw !!");
+});
+
+app.MapGet(HelloWorldRoutes.Api, DefaultResponseBusiness.SendDefaultApiEndpointOutput);
+
+app.MapGet(HelloWorldRoutes.ApiV1, () => DefaultResponseBusiness.SendDefaultApiEndpointV1Output());
+```
+
+**References:**
+
+> 1. [https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/route-handlers?view=aspnetcore-7.0](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/route-handlers?view=aspnetcore-7.0)
+
+## 9. Creating Unified Response Dto, and Constants
+
+> 1. Discussion and Demo
+
+```csharp
+public static class Constants
+{
+    public static class HelloWorldRoutes
+    {
+        public static string Root => "/";
+
+        public static string HelloWorld => "/hw";
+
+        public static string Api => "/api";
+
+        public static string ApiV1 => "/api/v1";
+    }
+}
+
+public record ApiResponseDto<T>
+{
+    public bool Success { get; set; }
+
+    public string? Message { get; set; }
+
+    public DateTimeOffset DateRequested => DateTimeOffset.UtcNow;
+
+    public T? Data { get; set; }
+
+    public static ApiResponseDto<T> Create(T? data = default, string message = "Success", bool success = true)
+    {
+        return new()
+        {
+            Success = success,
+            Message = message,
+            Data = data
+        };
+    }
+}
+```
+
 ## 7. Using Postman to test the API (Environment Variables, and Collections)
 
 > 1. Discussion and Demo
 
+![Postman Collections | 100x100](./Images/PostmanCollections.PNG)
+
 ## 8. Layered Architecture
-
-> 1. Discussion and Demo
-
-## 9. Creating Unified Response Dto, and Constants
 
 > 1. Discussion and Demo
 
@@ -189,17 +236,20 @@ dotnet new webapi -minimal -o secondsample --dry-run
 
 ---
 
-## What is Next? session `2` of `9` Sessions on 05 Feb, 2023
+## What is Next? session `2` of `5` Sessions on 07 Mar, 2023
 
 > 1. Tour of .NET 7 Minimal API Project (Web API, and Web App Empty Template)
-> 1. Dependency Injection
+> 1. Dependency Injection, and Comparision of Service Collections
 >    - Web App Empty
->    - Web API with UnCheck Controllers
+>    - Web API with Uncheck Controllers
 >    - Web API with Controllers
-> 1. Logging using Serilog
-> 1. Base Entity, and Inherit other Entities
-> 1. Student Entity
-> 1. Entity Framework Core (In Memory)
+> 1. Comparison of HTTP Request Pipeline
+> 1. Parameter Binding
+>    - From Query | From Route | From Body | From Services
+> 1. Base Entity
+> 1. Course Entity inheriting Base Entity
+> 1. Just enough `Entity Framework` Core (In Memory)
 > 1. Dependency Injection of DbContext
-> 1. GetAllStudents(), AddStudent() API Endpoints
+> 1. GetAllCourses() API Endpoint
+> 1. Seed Data
 > 1. Update Postman Collections to test the API (Environment Variables, and Collections)
