@@ -170,15 +170,16 @@ _ = builder.Services.AddDbContext<SchoolDbContext>(options =>
 
 ---
 
-## What is Next? session `3` of `9` Sessions on 19 Feb, 2023
+## What is Next? session `3` of `5` Sessions on 08 Mar, 2023
 
+> 1. Create responses in Minimal API
 > 1. Dependency Injection and Inversion of Control - Deep Dive
 > 1. Enhancing GetAllCourses() API Endpoint to return Unified Response
 > 1. Move the Hello World Endpoints into an Extension Class
 > 1. Move the User Endpoints into an Extension Class
 > 1. Move the Course Endpoints into an Extension Class
-> 1. Dtos using record, and returning Dtos
+> 1. Creating Course Dtos using record
 > 1. Auto Mapper Configuration
 > 1. Dependency Injection of Auto Mapper
-> 1. Enhancing GetAllCourses() API Endpoint to return Dtos
+> 1. Enhancing GetAllCourses() API Endpoint to return Course Dtos
 > 1. Update Postman Collections to test the API (Environment Variables, and Collections)

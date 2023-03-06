@@ -1,12 +1,6 @@
 # .NET 7 Minimal API DI, IOC, record, DTOs, AutoMapper, and Extension Methods
 
-## Date Time: 19-Feb-2023 at 09:00 AM IST
-
-## Event URL: [https://www.meetup.com/dot-net-learners-house-hyderabad/events/291087797](https://www.meetup.com/dot-net-learners-house-hyderabad/events/291087797)
-
-## YouTube URL: [https://www.youtube.com/watch?v=ke1OmtK1qU0](https://www.youtube.com/watch?v=ke1OmtK1qU0)
-
-![Viswanatha Swamy P K |150x150](./Documentation/Images/ViswanathaSwamyPK.PNG)
+## Date Time: 08-Mar-2023 at 08:30 PM IST
 
 ---
 
@@ -20,9 +14,6 @@
 ### Prior Knowledge
 
 > 1. Programming knowledge in C#
-> 1. Azure
-> 1. Angular 15
-> 1. .NET Razor/Blazor WASM
 
 ## Technology Stack
 
@@ -30,7 +21,7 @@
 
 ## Information
 
-![Information | 100x100](./Documentation/Images/Information.PNG)
+![Information | 100x100](./Images/Information.PNG)
 
 ## What are we doing today?
 
@@ -50,7 +41,7 @@
 
 ---
 
-![Information | 100x100](./Documentation/Images/SeatBelt.PNG)
+![Information | 100x100](./Images/SeatBelt.PNG)
 
 ---
 
@@ -107,7 +98,7 @@ app.MapGet(CoursesRoutes.Root, async ([FromServices] SchoolDbContext schoolDbCon
 });
 ```
 
-![Returning Course Entities | 100x100](./Documentation/Images/ReturningCourseEntities.PNG)
+![Returning Course Entities | 100x100](./Images/ReturningCourseEntities.PNG)
 
 ## 5. Move the Hello World Endpoints into an Extension Class
 
@@ -181,13 +172,13 @@ _ = group.MapGet(CoursesRoutes.Root, async ([FromServices] SchoolDbContext schoo
 });
 ```
 
-![Returning Course Dtos | 100x100](./Documentation/Images/ReturningCourseDtos.PNG)
+![Returning Course Dtos | 100x100](./Images/ReturningCourseDtos.PNG)
 
 ## 10. Update Postman Collections to test the API (Environment Variables, and Collections)
 
 > 1. Discussion and Demo
 
-![Postman Collections | 100x100](./Documentation/Images/PostmanCollections.PNG)
+![Postman Collections | 100x100](./Images/PostmanCollections.PNG)
 
 ---
 
@@ -198,7 +189,7 @@ _ = group.MapGet(CoursesRoutes.Root, async ([FromServices] SchoolDbContext schoo
 
 ---
 
-## What is Next? session `4` of `9` Sessions on 05 Mar, 2023
+## What is Next? session `4` of `5` Sessions on 09 Mar, 2023
 
 > 1. Adding Swagger Dependencies
 > 1. WithTags().WithName().Produces(200).ProducesProblem(500);
@@ -209,4 +200,3 @@ _ = group.MapGet(CoursesRoutes.Root, async ([FromServices] SchoolDbContext schoo
 > 1. Move Http Request Pipeline Dependencies into a Extension Class
 > 1. Update Postman Collections to test the API (Environment Variables, and Collections)
 > 1. GitHub Actions to build API
-> 1. SUMMARY / RECAP / Q&A

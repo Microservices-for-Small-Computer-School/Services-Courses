@@ -6,7 +6,7 @@
 
 ## YouTube URL: [https://www.youtube.com/watch?v=7iWWTCZCJBg](https://www.youtube.com/watch?v=7iWWTCZCJBg)
 
-![Viswanatha Swamy P K |150x150](./Documentation/Images/ViswanathaSwamyPK.PNG)
+![Viswanatha Swamy P K |150x150](./Images/ViswanathaSwamyPK.PNG)
 
 ---
 
@@ -30,7 +30,7 @@
 
 ## Information
 
-![Information | 100x100](./Documentation/Images/Information.PNG)
+![Information | 100x100](./Images/Information.PNG)
 
 ## What are we doing today?
 
@@ -48,7 +48,7 @@
 
 ---
 
-![Information | 100x100](./Documentation/Images/SeatBelt.PNG)
+![Information | 100x100](./Images/SeatBelt.PNG)
 
 ---
 
@@ -60,7 +60,7 @@
 
 > 1. [https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/openapi?view=aspnetcore-7.0](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/openapi?view=aspnetcore-7.0)
 
-![Swagger UI | 100x100](./Documentation/Images/SwaggerUI.PNG)
+![Swagger UI | 100x100](./Images/SwaggerUI.PNG)
 
 ```xml
 <ItemGroup>
@@ -106,13 +106,13 @@ _ = group.MapGet(CoursesRoutes.Root, async ([FromServices] SchoolDbContext schoo
 
 > 1. Discussion and Demo
 
-![Repository Layer | 100x100](./Documentation/Images/Repository.PNG)
+![Repository Layer | 100x100](./Images/Repository.PNG)
 
 ## 4.Creating Business Layer
 
 > 1. Discussion and Demo
 
-![Business Layer | 100x100](./Documentation/Images/BusinessLayer.PNG)
+![Business Layer | 100x100](./Images/BusinessLayer.PNG)
 
 ## 5.Dependency Injection of Swagger, Repository Layer, Business Layer
 
@@ -131,25 +131,25 @@ _ = services.AddSwaggerGen();
 
 > 1. Discussion and Demo
 
-![Services Collection | 100x100](./Documentation/Images/ServicesCollection.PNG)
+![Services Collection | 100x100](./Images/ServicesCollection.PNG)
 
 ## 7.Move Http Request Pipeline Dependencies into a Extension Class
 
 > 1. Discussion and Demo
 
-![Http Pipeline | 100x100](./Documentation/Images/HttpPipeline.PNG)
+![Http Pipeline | 100x100](./Images/HttpPipeline.PNG)
 
 ## 8.Update Postman Collections to test the API (Environment Variables, and Collections)
 
 > 1. Discussion and Demo
 
-![Postman Collections | 100x100](./Documentation/Images/PostmanCollections.PNG)
+![Postman Collections | 100x100](./Images/PostmanCollections.PNG)
 
 ## 9.GitHub Actions to build API
 
 > 1. Discussion and Demo
 
-![GitHub Actions | 100x100](./Documentation/Images/SessionFirstLook.PNG)
+![GitHub Actions | 100x100](./Images/SessionFirstLook.PNG)
 
 ---
 
