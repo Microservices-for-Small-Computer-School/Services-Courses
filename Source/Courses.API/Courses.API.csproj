@@ -6,14 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <!--<ItemGroup>
-    <Using Include="Courses.API.ApplicationCore.Common.Constants" Static="true" />
-  </ItemGroup>-->
-
   <ItemGroup>
-    <Folder Include="ApplicationCore\Common\" />
-    <Folder Include="Business\" />
-    <Folder Include="Data\Dtos\" />
+    <Using Include="Courses.API.ApplicationCore.Common.Constants" Static="true" />
   </ItemGroup>
 
 </Project>
