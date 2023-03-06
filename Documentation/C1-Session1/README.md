@@ -17,7 +17,7 @@
 
 ## Technology Stack
 
-> 1. .NET 7
+> 1. .NET 7, Azure
 
 ## Information
 

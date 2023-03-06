@@ -1,12 +1,6 @@
 # .NET 7 - Minimal API with Model Binding, Entity, DI, EF Core, and Seed Data
 
-## Date Time: 05-Feb-2023 at 09:00 AM IST
-
-## Event URL: [https://www.meetup.com/dot-net-learners-house-hyderabad/events/290692815](https://www.meetup.com/dot-net-learners-house-hyderabad/events/290692815)
-
-## YouTube URL: [https://www.youtube.com/watch?v=GxIuDp0d1uE](https://www.youtube.com/watch?v=GxIuDp0d1uE)
-
-![Viswanatha Swamy P K |150x150](./Documentation/Images/ViswanathaSwamyPK.PNG)
+## Date Time: 07-Mar-2023 at 08:30 PM IST
 
 ---
 
@@ -20,9 +14,6 @@
 ### Prior Knowledge
 
 > 1. Programming knowledge in C#
-> 1. Azure
-> 1. Angular 15
-> 1. .NET Razor/Blazor WASM
 
 ## Technology Stack
 
@@ -30,7 +21,7 @@
 
 ## Information
 
-![Information | 100x100](./Documentation/Images/Information.PNG)
+![Information | 100x100](./Images/Information.PNG)
 
 ## What are we doing today?
 
@@ -54,7 +45,7 @@
 
 ---
 
-![Information | 100x100](./Documentation/Images/SeatBelt.PNG)
+![Information | 100x100](./Images/SeatBelt.PNG)
 
 ---
 
@@ -91,7 +82,7 @@
 
 > 1. Discussion and Demo
 
-![Parameter Binding | 100x100](./Documentation/Images/ParameterBinding.PNG)
+![Parameter Binding | 100x100](./Images/ParameterBinding.PNG)
 
 ## 5. Base Entity
 
@@ -158,7 +149,7 @@ _ = builder.Services.AddDbContext<SchoolDbContext>(options =>
 
 > 1. Discussion and Demo
 
-![Get All Courses | 100x100](./Documentation/Images/GetAllCourses.PNG)
+![Get All Courses | 100x100](./Images/GetAllCourses.PNG)
 
 ## 10. Seed Data
 
@@ -168,7 +159,7 @@ _ = builder.Services.AddDbContext<SchoolDbContext>(options =>
 
 > 1. Discussion and Demo
 
-![Postman Collections | 100x100](./Documentation/Images/PostmanCollections.PNG)
+![Postman Collections | 100x100](./Images/PostmanCollections.PNG)
 
 ---
 
