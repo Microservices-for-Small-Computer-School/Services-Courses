@@ -1,12 +1,7 @@
 # Minimal API .NET 7 - Swagger, Repository, Business Layer, and GitHub Actions
 
-## Date Time: 05-Mar-2023 at 09:00 AM IST
+## Date Time: 10-Mar-2023 at 09:00 AM IST
 
-## Event URL: [https://www.meetup.com/dot-net-learners-house-hyderabad/events/291609769](https://www.meetup.com/dot-net-learners-house-hyderabad/events/291609769)
-
-## YouTube URL: [https://www.youtube.com/watch?v=7iWWTCZCJBg](https://www.youtube.com/watch?v=7iWWTCZCJBg)
-
-![Viswanatha Swamy P K |150x150](./Images/ViswanathaSwamyPK.PNG)
 
 ---
 
@@ -44,7 +39,7 @@
 > 1. Update Postman Collections to test the API (Environment Variables, and Collections)
 > 1. GitHub Actions to build API
 
-### Please refer to the [**Source Code**](https://github.com/Microservices-for-Small-School-App/services-school) of today's session for more details
+### Please refer to the [**Source Code**](https://github.com/Microservices-for-Small-Computer-School/Services-Courses) of today's session for more details
 
 ---
 

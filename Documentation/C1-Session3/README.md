@@ -37,7 +37,7 @@
 > 1. Enhancing GetAllCourses() API Endpoint to return Course Dtos
 > 1. Update Postman Collections to test the API (Environment Variables, and Collections)
 
-### Please refer to the [**Source Code**](https://github.com/Microservices-for-Small-School-App/services-school) of today's session for more details
+### Please refer to the [**Source Code**](https://github.com/Microservices-for-Small-Computer-School/Services-Courses) of today's session for more details
 
 ---
 
