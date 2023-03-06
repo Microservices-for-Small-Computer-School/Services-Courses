@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Using Include="Courses.API.ApplicationCore.Common.Constants" Static="true" />
+  </ItemGroup>
+
 </Project>
