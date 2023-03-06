@@ -155,6 +155,19 @@ dotnet new webapi -minimal -o secondsample --dry-run
 
 > 1. Discussion and Demo
 
+```csharp
+app.MapGet(HelloWorldRoutes.Root, () => "Hello Minimal API World from Root !!");
+
+app.MapGet(HelloWorldRoutes.HelloWorld, () =>
+{
+    return ApiResponseDto<string>.Create("Hello Minimal API World from /hw !!");
+});
+
+app.MapGet(HelloWorldRoutes.Api, DefaultResponseBusiness.SendDefaultApiEndpointOutput);
+
+app.MapGet(HelloWorldRoutes.ApiV1, () => DefaultResponseBusiness.SendDefaultApiEndpointV1Output());
+```
+
 **References:**
 
 > 1. [https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/route-handlers?view=aspnetcore-7.0](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/route-handlers?view=aspnetcore-7.0)
