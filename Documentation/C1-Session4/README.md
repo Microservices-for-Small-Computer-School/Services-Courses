@@ -1,12 +1,6 @@
 # Minimal API .NET 7 - Swagger, Repository, Business Layer, and GitHub Actions
 
-## Date Time: 05-Mar-2023 at 09:00 AM IST
-
-## Event URL: [https://www.meetup.com/dot-net-learners-house-hyderabad/events/291609769](https://www.meetup.com/dot-net-learners-house-hyderabad/events/291609769)
-
-## YouTube URL: [https://www.youtube.com/watch?v=7iWWTCZCJBg](https://www.youtube.com/watch?v=7iWWTCZCJBg)
-
-![Viswanatha Swamy P K |150x150](./Images/ViswanathaSwamyPK.PNG)
+## Date Time: 09-Mar-2023 at 08:30 PM IST
 
 ---
 
@@ -20,9 +14,6 @@
 ### Prior Knowledge
 
 > 1. Programming knowledge in C#
-> 1. Azure
-> 1. Angular 15
-> 1. .NET Razor/Blazor WASM
 
 ## Technology Stack
 

@@ -1,7 +1,6 @@
 # Minimal API .NET 7 - Swagger, Repository, Business Layer, and GitHub Actions
 
-## Date Time: 10-Mar-2023 at 09:00 AM IST
-
+## Date Time: 10-Mar-2023 at 08:30 PM IST
 
 ---
 
@@ -15,9 +14,6 @@
 ### Prior Knowledge
 
 > 1. Programming knowledge in C#
-> 1. Azure
-> 1. Angular 15
-> 1. .NET Razor/Blazor WASM
 
 ## Technology Stack
 
