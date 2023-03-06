@@ -172,15 +172,54 @@ app.MapGet(HelloWorldRoutes.ApiV1, () => DefaultResponseBusiness.SendDefaultApiE
 
 > 1. [https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/route-handlers?view=aspnetcore-7.0](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/route-handlers?view=aspnetcore-7.0)
 
+## 9. Creating Unified Response Dto, and Constants
+
+> 1. Discussion and Demo
+
+```csharp
+public static class Constants
+{
+    public static class HelloWorldRoutes
+    {
+        public static string Root => "/";
+
+        public static string HelloWorld => "/hw";
+
+        public static string Api => "/api";
+
+        public static string ApiV1 => "/api/v1";
+    }
+}
+
+public record ApiResponseDto<T>
+{
+    public bool Success { get; set; }
+
+    public string? Message { get; set; }
+
+    public DateTimeOffset DateRequested => DateTimeOffset.UtcNow;
+
+    public T? Data { get; set; }
+
+    public static ApiResponseDto<T> Create(T? data = default, string message = "Success", bool success = true)
+    {
+        return new()
+        {
+            Success = success,
+            Message = message,
+            Data = data
+        };
+    }
+}
+```
+
 ## 7. Using Postman to test the API (Environment Variables, and Collections)
 
 > 1. Discussion and Demo
 
+![Postman Collections | 100x100](./Images/PostmanCollections.PNG)
+
 ## 8. Layered Architecture
-
-> 1. Discussion and Demo
-
-## 9. Creating Unified Response Dto, and Constants
 
 > 1. Discussion and Demo
 

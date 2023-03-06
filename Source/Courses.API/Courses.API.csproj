@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -6,8 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <Using Include="Courses.API.ApplicationCore.Common.Constants" Static="true" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <Folder Include="ApplicationCore\Common\" />
+    <Folder Include="Business\" />
+    <Folder Include="Data\Dtos\" />
   </ItemGroup>
 
 </Project>
