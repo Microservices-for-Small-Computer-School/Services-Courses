@@ -32,7 +32,6 @@
 >    - Web API with Uncheck Controllers
 >    - Web API with Controllers
 > 1. Comparison of HTTP Request Pipeline
-> 1. Move the Hello World Endpoints into an IEndpointRouteBuilder Extension Class
 > 1. Parameter Binding demo with User Endpoints
 >    - From Query | From Route | From Body | From Services
 > 1. Base Entity
@@ -72,25 +71,7 @@
 > 1. [https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-7.0](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-7.0)
 > 1. [https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-7.0](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-7.0)
 
-## 4. Move the Hello World Endpoints into an IEndpointRouteBuilder Extension Class
-
-> 1. Discussion and Demo
-> 1. IEndpointRouteBuilder Extension Method MapHelloWorldEndpoints()
-
-```csharp
-_ = routes.MapGet(HelloWorldRoutes.Root, () => "Hello Minimal API World from Root !!");
-    
-_ = routes.MapGet(HelloWorldRoutes.HelloWorld, () =>
-    {
-        return ApiResponseDto<string>.Create("Hello Minimal API World from /hw !!");
-    });
-    
-_ = routes.MapGet(HelloWorldRoutes.Api, DefaultResponseBusiness.SendDefaultApiEndpointOutput);
-    
-_ = routes.MapGet(HelloWorldRoutes.ApiV1, () => DefaultResponseBusiness.SendDefaultApiEndpointV1Output());
-```
-
-## 5. Parameter Binding demo with User Endpoints
+## 4. Parameter Binding demo with User Endpoints
 
 > 1. Discussion and Demo
 > 1. Update the Constants.cs file for User Endpoints
@@ -140,7 +121,7 @@ app.MapPost(UsersRoutes.Root, ([FromBody] PersonDto person) =>
 
 ![Parameter Binding | 100x100](./Images/ParameterBinding.PNG)
 
-## 6. Base Entity
+## 5. Base Entity
 
 > 1. Discussion and Demo
 
@@ -192,6 +173,24 @@ public class Course : BaseEntity
 </ItemGroup>
 ```
 
+```csharp
+public class SchoolDbContext : DbContext
+{
+    public SchoolDbContext(DbContextOptions<SchoolDbContext> options) : base(options)
+    {
+    }
+
+    public DbSet<Course> Courses => Set<Course>();
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.ApplyConfiguration(new CourseData());
+    }
+}
+```
+
 ## 8. Dependency Injection of DbContext
 
 > 1. Discussion and Demo
@@ -220,6 +219,13 @@ public static class CoursesRoutes
 {
     public static string Root { get; } = "/api/courses";
 }
+```
+
+```csharp
+app.MapGet(CoursesRoutes.Root, async ([FromServices] SchoolDbContext schoolDbContext) =>
+{
+    return Results.Ok(await schoolDbContext.GetAllCourses());
+});
 ```
 
 ![Get All Courses | 100x100](./Images/GetAllCourses.PNG)
