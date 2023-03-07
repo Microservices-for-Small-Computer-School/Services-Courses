@@ -1,6 +1,6 @@
 # .NET 7 - Minimal API with Model Binding, Entity, DI, EF Core, and Seed Data
 
-## Date Time: 07-Mar-2023 at 08:30 PM IST
+## Date Time: 08-Mar-2023 at 08:30 PM IST
 
 ---
 
@@ -10,6 +10,7 @@
 > 1. .NET 7
 > 1. Visual Studio 2022
 > 1. Visual Studio Code
+> 1. Postman
 
 ### Prior Knowledge
 
@@ -31,7 +32,8 @@
 >    - Web API with Uncheck Controllers
 >    - Web API with Controllers
 > 1. Comparison of HTTP Request Pipeline
-> 1. Parameter Binding
+> 1. Move the Hello World Endpoints into an IEndpointRouteBuilder Extension Class
+> 1. Parameter Binding demo with User Endpoints
 >    - From Query | From Route | From Body | From Services
 > 1. Base Entity
 > 1. Course Entity inheriting Base Entity
@@ -70,9 +72,42 @@
 > 1. [https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-7.0](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-7.0)
 > 1. [https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-7.0](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-7.0)
 
-## 4. Parameter Binding
+## 4. Move the Hello World Endpoints into an IEndpointRouteBuilder Extension Class
 
 > 1. Discussion and Demo
+> 1. IEndpointRouteBuilder Extension Method MapHelloWorldEndpoints()
+
+```csharp
+_ = routes.MapGet(HelloWorldRoutes.Root, () => "Hello Minimal API World from Root !!");
+    
+_ = routes.MapGet(HelloWorldRoutes.HelloWorld, () =>
+    {
+        return ApiResponseDto<string>.Create("Hello Minimal API World from /hw !!");
+    });
+    
+_ = routes.MapGet(HelloWorldRoutes.Api, DefaultResponseBusiness.SendDefaultApiEndpointOutput);
+    
+_ = routes.MapGet(HelloWorldRoutes.ApiV1, () => DefaultResponseBusiness.SendDefaultApiEndpointV1Output());
+```
+
+## 5. Parameter Binding demo with User Endpoints
+
+> 1. Discussion and Demo
+> 1. Update the Constants.cs file for User Endpoints
+> 1. Create a PersonDto.cs file
+
+```csharp
+public static class UsersRoutes
+{
+    public static string Root => "/api/users";
+    
+    public static string ActionById => "/api/users/{id}";
+}
+```
+
+```csharp
+public record PersonDto(string? Id, string? Name);
+```
 
 **References:**
 
@@ -81,10 +116,31 @@
 ### From Query | From Route | From Body | From Services
 
 > 1. Discussion and Demo
+> 1. Add User Endpoints in Program.cs
+
+```csharp
+app.MapGet(UsersRoutes.ActionById, ([FromRoute] string id, [FromQuery] string name) =>
+{
+    return ApiResponseDto<dynamic>.Create(new
+    {
+        UserId = id,
+        Message = $"Hello {name}, Welcome to Minimal API World !!"
+    });
+});
+
+app.MapPost(UsersRoutes.Root, ([FromBody] PersonDto person) =>
+{
+    return ApiResponseDto<dynamic>.Create(new
+    {
+        UserId = person.Id,
+        UserName = person.Name,
+    });
+});
+```
 
 ![Parameter Binding | 100x100](./Images/ParameterBinding.PNG)
 
-## 5. Base Entity
+## 6. Base Entity
 
 > 1. Discussion and Demo
 
@@ -139,6 +195,15 @@ public class Course : BaseEntity
 ## 8. Dependency Injection of DbContext
 
 > 1. Discussion and Demo
+> 1. Update the Constants.cs file for Course Endpoints
+> 1. Add DbContext as Dependency in Program.cs
+
+```csharp
+public static class InMemoryDatabase
+{
+    public static string Name { get; } = "SchoolDatabase";
+}
+```
 
 ```csharp
 _ = builder.Services.AddDbContext<SchoolDbContext>(options =>
@@ -148,6 +213,14 @@ _ = builder.Services.AddDbContext<SchoolDbContext>(options =>
 ## 10. GetAllCourses() API Endpoint
 
 > 1. Discussion and Demo
+> 1. Update the Constants.cs file for Course Endpoints
+
+```csharp
+public static class CoursesRoutes
+{
+    public static string Root { get; } = "/api/courses";
+}
+```
 
 ![Get All Courses | 100x100](./Images/GetAllCourses.PNG)
 

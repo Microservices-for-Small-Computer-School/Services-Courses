@@ -10,6 +10,7 @@
 > 1. .NET 7
 > 1. Visual Studio 2022
 > 1. Visual Studio Code
+> 1. Postman
 
 ### Prior Knowledge
 
