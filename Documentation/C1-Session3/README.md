@@ -1,6 +1,6 @@
 # .NET 7 Minimal API DI, IOC, record, DTOs, AutoMapper, and Extension Methods
 
-## Date Time: 08-Mar-2023 at 08:30 PM IST
+## Date Time: 09-Mar-2023 at 08:30 PM IST
 
 ---
 
@@ -10,6 +10,7 @@
 > 1. .NET 7
 > 1. Visual Studio 2022
 > 1. Visual Studio Code
+> 1. Postman
 
 ### Prior Knowledge
 
