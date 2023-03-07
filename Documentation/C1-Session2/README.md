@@ -249,7 +249,7 @@ app.MapGet(CoursesRoutes.Root, async ([FromServices] SchoolDbContext schoolDbCon
 
 ---
 
-## What is Next? session `3` of `5` Sessions on 08 Mar, 2023
+## What is Next? session `3` of `5` Sessions on 09 Mar, 2023
 
 > 1. Create responses in Minimal API
 > 1. Dependency Injection and Inversion of Control - Deep Dive
