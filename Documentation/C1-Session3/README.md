@@ -190,7 +190,7 @@ _ = group.MapGet(CoursesRoutes.Root, async ([FromServices] SchoolDbContext schoo
 
 ---
 
-## What is Next? session `4` of `5` Sessions on 09 Mar, 2023
+## What is Next? session `4` of `5` Sessions on 10 Mar, 2023
 
 > 1. Adding Swagger Dependencies
 > 1. WithTags().WithName().Produces(200).ProducesProblem(500);

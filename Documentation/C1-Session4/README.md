@@ -1,6 +1,6 @@
 # Minimal API .NET 7 - Swagger, Repository, Business Layer, and GitHub Actions
 
-## Date Time: 09-Mar-2023 at 08:30 PM IST
+## Date Time: 10-Mar-2023 at 08:30 PM IST
 
 ---
 
@@ -151,7 +151,7 @@ _ = services.AddSwaggerGen();
 
 ---
 
-## What is Next? session `5` of `9` Sessions on 19 Mar, 2023
+## What is Next? session `5` of `5` Sessions on 13 Mar, 2023
 
 > 1. Logging using Serilog
 > 1. Dependency Injection of CORS
