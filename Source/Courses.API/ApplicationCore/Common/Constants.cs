@@ -12,4 +12,21 @@ public static class Constants
 
         public static string ApiV1 => "/api/v1";
     }
+
+    public static class UsersRoutes
+    {
+        public static string Root => "/api/users";
+
+        public static string ActionById => "/api/users/{id}";
+    }
+
+    public static class CoursesRoutes
+    {
+        public static string Root { get; } = "/api/courses";
+    }
+
+    public static class InMemoryDatabase
+    {
+        public static string Name { get; } = "SchoolDatabase";
+    }
 }
