@@ -15,14 +15,18 @@ public static class Constants
 
     public static class UsersRoutes
     {
-        public static string Root => "/api/users";
+        public static string Prefix => "/api/users";
 
-        public static string ActionById => "/api/users/{id}";
+        public static string Root => "/";
+
+        public static string ActionById => "/{id}";
     }
 
     public static class CoursesRoutes
     {
-        public static string Root { get; } = "/api/courses";
+        public static string Prefix { get; } = "/api/courses";
+
+        public static string Root => "/";
     }
 
     public static class InMemoryDatabase
