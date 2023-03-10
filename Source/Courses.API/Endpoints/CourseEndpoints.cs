@@ -1,9 +1,7 @@
-﻿using AutoMapper;
+﻿using Courses.API.ApplicationCore.Interfaces;
 using Courses.API.Data.Dtos;
 using Courses.API.Data.Entities;
-using Courses.API.Persistence;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Courses.API.Endpoints;
 
@@ -13,12 +11,10 @@ public static class CourseEndpoints
     {
         var group = routes.MapGroup(CoursesRoutes.Prefix).WithTags(nameof(Course));
 
-        _ = group.MapGet(CoursesRoutes.Root, async ([FromServices] SchoolDbContext schoolDbContext, [FromServices] IMapper mapper) =>
+        _ = group.MapGet(CoursesRoutes.Root, async ([FromServices] ICoursesBusiness coursesBusiness) =>
         {
-            var coursesResponse = ApiResponseDto<IReadOnlyCollection<CourseDto>>
-                                    .Create(mapper.Map<IReadOnlyCollection<CourseDto>>(await schoolDbContext.Courses.ToListAsync()));
+            return Results.Ok(await coursesBusiness.GetAllCourses());
 
-            return Results.Ok(coursesResponse);
         }).AllowAnonymous()
           .WithName("GetAllCourses")
           .Produces<ApiResponseDto<IReadOnlyCollection<CourseDto>>>(StatusCodes.Status200OK)
