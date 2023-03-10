@@ -9,10 +9,18 @@ _ = builder.Services.AddDbContext<SchoolDbContext>(options => options.UseInMemor
 
 _ = builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+_ = builder.Services.AddEndpointsApiExplorer();
+_ = builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
-{  // TODO: To be removed once we have .sqlproj
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+
+    // TODO: To be removed once we have .sqlproj
     using var scope = app.Services.CreateScope();
     using var context = scope.ServiceProvider.GetService<SchoolDbContext>();
     _ = (context?.Database.EnsureCreated());

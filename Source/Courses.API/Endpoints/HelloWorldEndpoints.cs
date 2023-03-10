@@ -8,7 +8,7 @@ public static class HelloWorldEndpoints
 
     public static void MapHelloWorldEndpoints(this IEndpointRouteBuilder routes)
     {
-        _ = routes.MapGet(HelloWorldRoutes.Root, () => "Hello Minimal API World from Root !!");
+        _ = routes.MapGet(HelloWorldRoutes.Root, () => "Minimal API. Please visit /swagger for full documentation");
 
         _ = routes.MapGet(HelloWorldRoutes.HelloWorld, () =>
         {
