@@ -10,6 +10,7 @@
 > 1. .NET 7
 > 1. Visual Studio 2022
 > 1. Visual Studio Code
+> 1. Postman
 
 ### Prior Knowledge
 
@@ -17,7 +18,7 @@
 
 ## Technology Stack
 
-> 1. .NET 7, Azure
+> 1. .NET 7, Azure, Angular 15
 
 ## Information
 
