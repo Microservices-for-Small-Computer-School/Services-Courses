@@ -26,15 +26,12 @@
 
 ## What are we doing today?
 
-> 1. Adding Swagger Dependencies
-> 1. WithTags().WithName().Produces(200).ProducesProblem(500);
-> 1. Creating Repository Layer
-> 1. Creating Business Layer
-> 1. Dependency Injection of Swagger, Repository Layer, Business Layer
-> 1. Move Service Dependencies into a Extension Class
-> 1. Move Http Request Pipeline Dependencies into a Extension Class
-> 1. Update Postman Collections to test the API (Environment Variables, and Collections)
-> 1. GitHub Actions to build API
+> 1. Logging using Serilog
+> 1. Dependency Injection of CORS
+> 1. Angular 15 (SPA with Standalone components) integration with Minimal API Only GetAllCourses() Local API Endpoint
+> 1. Deploy Minimal API to Azure App Service using VS 2022
+> 1. Angular 15 (SPA with Standalone components) integration with Minimal API Only GetAllCourses() Azure Hosted API Endpoint
+> 1. SUMMARY / RECAP / Q&A
 
 ### Please refer to the [**Source Code**](https://github.com/Microservices-for-Small-Computer-School/Services-Courses) of today's session for more details
 
@@ -154,9 +151,5 @@ _ = services.AddSwaggerGen();
 
 ## What is Next? session `5` of `9` Sessions on 19 Mar, 2023
 
-> 1. Logging using Serilog
-> 1. Dependency Injection of CORS
-> 1. Angular 15 (SPA with Standalone components) integration with Minimal API Only GetAllCourses() Local API Endpoint
-> 1. Deploy Minimal API to Azure App Service using VS 2022
-> 1. Angular 15 (SPA with Standalone components) integration with Minimal API Only GetAllCourses() Azure Hosted API Endpoint
+> 1. .SQLProj
 > 1. SUMMARY / RECAP / Q&A
