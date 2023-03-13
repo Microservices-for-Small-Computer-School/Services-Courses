@@ -1,6 +1,6 @@
-# Minimal API .NET 7 - Swagger, Repository, Business Layer, and GitHub Actions
+# Minimal API .NET 7 - Serilog, CORS, Azure App Service, and Angular 15 UI
 
-## Date Time: 10-Mar-2023 at 08:30 PM IST
+## Date Time: 13-Mar-2023 at 08:30 PM IST
 
 ---
 
@@ -10,6 +10,7 @@
 > 1. .NET 7
 > 1. Visual Studio 2022
 > 1. Visual Studio Code
+> 1. Postman
 
 ### Prior Knowledge
 
@@ -17,7 +18,7 @@
 
 ## Technology Stack
 
-> 1. .NET 7, Azure
+> 1. .NET 7, Azure, Angular 15
 
 ## Information
 
@@ -25,15 +26,12 @@
 
 ## What are we doing today?
 
-> 1. Adding Swagger Dependencies
-> 1. WithTags().WithName().Produces(200).ProducesProblem(500);
-> 1. Creating Repository Layer
-> 1. Creating Business Layer
-> 1. Dependency Injection of Swagger, Repository Layer, Business Layer
-> 1. Move Service Dependencies into a Extension Class
-> 1. Move Http Request Pipeline Dependencies into a Extension Class
-> 1. Update Postman Collections to test the API (Environment Variables, and Collections)
-> 1. GitHub Actions to build API
+> 1. Logging using Serilog
+> 1. Configuration CORS in Development Mode
+> 1. Angular 15 (SPA with Standalone components) integration with Minimal API Only GetAllCourses() Local API Endpoint
+> 1. Deploy Minimal API to Azure App Service using VS 2022 / VS Code
+> 1. Angular 15 (SPA with Standalone components) integration with Minimal API Only GetAllCourses() Azure Hosted API Endpoint
+> 1. SUMMARY / RECAP / Q&A
 
 ### Please refer to the [**Source Code**](https://github.com/Microservices-for-Small-Computer-School/Services-Courses) of today's session for more details
 
@@ -43,104 +41,62 @@
 
 ---
 
-## 1. Adding Swagger Dependencies
+## 1. Logging using Serilog
 
 > 1. Discussion and Demo
 
-**Reference(s):**
-
-> 1. [https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/openapi?view=aspnetcore-7.0](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/openapi?view=aspnetcore-7.0)
-
-![Swagger UI | 100x100](./Images/SwaggerUI.PNG)
-
 ```xml
 <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 </ItemGroup>
 ```
 
 ```csharp
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-_ = builder.Services.AddEndpointsApiExplorer();
-_ = builder.Services.AddSwaggerGen();
+builder.Logging.ClearProviders();
+
+builder.Logging.AddSerilog(new LoggerConfiguration()
+    .WriteTo.Debug()
+    .WriteTo.Console()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger());
+```
+
+## 2. Configuration CORS in Development Mode
+
+> 1. Discussion and Demo
+
+```csharp
+_ = services.AddCors(options => {
+            options.AddPolicy("AllowAll", policy => policy.AllowAnyHeader()
+                                                            .AllowAnyOrigin().AllowAnyMethod());
+        });
 ```
 
 ```csharp
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseCors("AllowAll");
 }
 ```
 
-## 2. WithTags().WithName().Produces(200).ProducesProblem(500)
+## 3. Angular 15 (SPA with Standalone components) integration with Minimal API Only GetAllCourses() Local API Endpoint
 
 > 1. Discussion and Demo
 
-```csharp
-_ = group.MapGet(CoursesRoutes.Root, async ([FromServices] SchoolDbContext schoolDbContext, IMapper mapper) =>
-{
-    var coursesResponse = ApiResponseDto<IReadOnlyCollection<CourseDto>>.Create(
-            mapper.Map<IReadOnlyCollection<CourseDto>>(await schoolDbContext.Courses.ToListAsync())
-        );
-    return Results.Ok(coursesResponse);
-})
-  .AllowAnonymous()
-  .WithName("GetAllCourses")
-  .Produces<ApiResponseDto<IReadOnlyCollection<CourseDto>>>(StatusCodes.Status200OK)
-  .ProducesProblem(StatusCodes.Status500InternalServerError)
-  .WithOpenApi();
-```
+![Angular 15 With Local API | 100x100](./Images/Angular15_WithLocal_API.PNG)
 
-## 3.Creating Repository Layer
+## 4. Deploy Minimal API to Azure App Service using VS 2022 / VS Code
 
 > 1. Discussion and Demo
 
-![Repository Layer | 100x100](./Images/Repository.PNG)
+![Minimal API Hosted In Azure | 100x100](./Images/MinimalAPIHostedInAzure.PNG)
 
-## 4.Creating Business Layer
-
-> 1. Discussion and Demo
-
-![Business Layer | 100x100](./Images/BusinessLayer.PNG)
-
-## 5.Dependency Injection of Swagger, Repository Layer, Business Layer
+## 5. Angular 15 (SPA with Standalone components) integration with Minimal API Only GetAllCourses() Azure Hosted API Endpoint
 
 > 1. Discussion and Demo
 
-```csharp
-_ = services.AddScoped<ICoursesBusiness, CoursesBusiness>();
-_ = services.AddScoped<ICoursesRepository, CoursesRepository>();
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-_ = services.AddEndpointsApiExplorer();
-_ = services.AddSwaggerGen();
-```
-
-## 6.Move Service Dependencies into a Extension Class
-
-> 1. Discussion and Demo
-
-![Services Collection | 100x100](./Images/ServicesCollection.PNG)
-
-## 7.Move Http Request Pipeline Dependencies into a Extension Class
-
-> 1. Discussion and Demo
-
-![Http Pipeline | 100x100](./Images/HttpPipeline.PNG)
-
-## 8.Update Postman Collections to test the API (Environment Variables, and Collections)
-
-> 1. Discussion and Demo
-
-![Postman Collections | 100x100](./Images/PostmanCollections.PNG)
-
-## 9.GitHub Actions to build API
-
-> 1. Discussion and Demo
-
-![GitHub Actions | 100x100](./Images/SessionFirstLook.PNG)
+![Angular 15 With Azure API | 100x100](./Images/Angular15_With_Azure_API.PNG)
 
 ---
 
@@ -153,9 +109,5 @@ _ = services.AddSwaggerGen();
 
 ## What is Next? session `5` of `9` Sessions on 19 Mar, 2023
 
-> 1. Logging using Serilog
-> 1. Dependency Injection of CORS
-> 1. Angular 15 (SPA with Standalone components) integration with Minimal API Only GetAllCourses() Local API Endpoint
-> 1. Deploy Minimal API to Azure App Service using VS 2022
-> 1. Angular 15 (SPA with Standalone components) integration with Minimal API Only GetAllCourses() Azure Hosted API Endpoint
+> 1. .SQLProj
 > 1. SUMMARY / RECAP / Q&A

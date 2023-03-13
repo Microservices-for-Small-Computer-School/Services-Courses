@@ -24,6 +24,12 @@ public static class DependedServicesExtensions
         _ = services.AddEndpointsApiExplorer();
         _ = services.AddSwaggerGen();
 
+        _ = services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", policy => policy.AllowAnyHeader()
+                                                            .AllowAnyOrigin().AllowAnyMethod());
+        });
+
         return services;
     }
 }
