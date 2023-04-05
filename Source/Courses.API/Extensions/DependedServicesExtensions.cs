@@ -27,7 +27,8 @@ public static class DependedServicesExtensions
         _ = services.AddCors(options =>
         {
             options.AddPolicy("AllowAll", policy => policy.AllowAnyHeader()
-                                                            .AllowAnyOrigin().AllowAnyMethod());
+                                                            .WithOrigins("http://localhost:4007")
+                                                            .AllowAnyMethod());
         });
 
         return services;
